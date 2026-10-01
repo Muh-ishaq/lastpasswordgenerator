@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Generated Password:</h2>
+        <div class="password-box">
+            <input type="text" id="result" readonly>
+            <button onclick="copyPassword()">Copy</button>
+        </div>
+
+        <h2>Online Password Generator</h2>
+
+        <label>Choose type:</label><br>
+        <input type="checkbox" id="numeric" value="numeric"> Numeric
+        <input type="checkbox" id="alphabet" value="alphabet"> Alphabet
+        <input type="checkbox" id="special" value="special"> Special Characters
+
+        <br><br>
+        <label for="length">Password Length:</label>
+        <input type="number" id="length" value="12" min="4" max="999">
+        <input type="range" id="lengthSlider" min="4" max="999" value="12">
+
+        <br><br>
+        <button onclick="generatePassword()">Generate</button>
+    </div>
+
+    <!-- Flying birds and butterflies -->
+    <div class="bird"></div>
+    <div class="butterfly"></div>
+
+    <script>
+        const lengthInput = document.getElementById("length");
+        const lengthSlider = document.getElementById("lengthSlider");
+
+        lengthSlider.oninput = () => lengthInput.value = lengthSlider.value;
+        lengthInput.oninput = () => lengthSlider.value = lengthInput.value;
+
+        async function generatePassword() {
+            let modes = [];
+            if (document.getElementById("numeric").checked) modes.push("numeric");
+            if (document.getElementById("alphabet").checked) modes.push("alphabet");
+            if (document.getElementById("special").checked) modes.push("special");
+
+            const length = document.getElementById("length").value;
+
+            const response = await fetch("/generate", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({length: length, mode: modes})
+            });
+
+            const data = await response.json();
+            document.getElementById("result").value = data.password;
+        }
+
+        function copyPassword() {
+            const result = document.getElementById("result");
+            result.select();
+            document.execCommand("copy");
+            alert("Password copied to clipboard!");
+        }
+    </script>
+</body>
+</html>

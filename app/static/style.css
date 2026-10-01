@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;   /* horizontally center */
+    align-items: center;       /* vertically center */
+    background: #eaffea;       /* light green background */
+    color: #003300;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.password-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#result {
+    font-size: 20px;
+    font-weight: bold;
+    color: darkgreen;
+    background-color: #f0fff0;
+    border: 2px solid #66cc66;
+    padding: 10px;
+    width: 500px; /* longer field */
+}
+
+/* Flying birds and butterflies */
+@keyframes fly {
+    0% { transform: translateX(-100px) translateY(0); }
+    50% { transform: translateX(50vw) translateY(-50px); }
+    100% { transform: translateX(100vw) translateY(0); }
+}
+
+.bird, .butterfly {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: fly 20s linear infinite;
+    pointer-events: none;
+}
+
+.bird {
+    background-image: url("bird.png");
+}
+
+.butterfly {
+    background-image: url("butterfly.png");
+    animation-duration: 25s;
+}
