@@ -42,3 +42,10 @@ To push the image on the docker hub use the following command
 
 now we can pull the image anywhere we want by the command
 > docker pull ishaq0925/lastpassword:1.0
+
+#### GIT COMMANDS
+>git init
+this command is used to initialize a directory as a local git repository
+>git status
+to show the status of the directory, either the modification made, in stagging stage
+>
