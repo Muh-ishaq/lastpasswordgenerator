@@ -48,7 +48,15 @@ now we can pull the image anywhere we want by the command
 >git init
 this command is used to initialize a directory as a local git repository
 >git status
-
+>This command shows the status of the git repo,
+>git commit -m "1st commit"
+>it show green writing of the folder if the commit is done
+>before commit the same folder is shown in red color
+>next command is about pushing the data using commmand
+>
+>rename git branch -M main
+>git push origin main
+>
 ### Different Docker Container Commands 
 > docker ps # list all the container that are running
 > 81b3fdf5162c   ishaq0925/lastpassword:1.0   "gunicorn --bind 0.0…"   33 minutes ago   Up 33 minutes   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp   lastpasswordapp
