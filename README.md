@@ -1,3 +1,4 @@
+#### Images are hard to attach here thats why some commands along its output are attached in assignment in docx form
 ## Docker Image
 
 The first command i had used for Docker is docker image creation
@@ -47,5 +48,16 @@ now we can pull the image anywhere we want by the command
 >git init
 this command is used to initialize a directory as a local git repository
 >git status
-to show the status of the directory, either the modification made, in stagging stage
->
+
+### Different Docker Container Commands 
+> docker ps # list all the container that are running
+> 81b3fdf5162c   ishaq0925/lastpassword:1.0   "gunicorn --bind 0.0…"   33 minutes ago   Up 33 minutes   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp   lastpasswordapp
+> second command is to stop the container
+> docker stop 81b3fdf5162c
+> 81b3fdf5162c  # this hash is returned which shows that the container is stopped. I will upload the image in .docx file
+
+#  Git Repo commands
+git init  # to initialize the git repo locally
+now 
+> 
+
